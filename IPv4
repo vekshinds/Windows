@@ -1,0 +1,24 @@
+Посмотреть 
+netsh interface show interface или 
+netsh interface ipv4 show config
+netsh interface ipv4 show config "Ethernet 2" — обязательно двойные кавычки 
+
+Отключить 
+netsh interface set interface name="Local Area Connection" admin=DISABLED
+и включить 
+netsh interface set interface name="Local Area Connection" admin=ENABLED
+
+Переименовать 
+netsh interface set interface name="Ethernet 2" newname="Ethernet Gigabit"
+
+Настроить
+Установить адрес вручную 
+netsh interface ipv4 set address name="Ethernet 2" static 
+192.168.1.207 255.255.255.0 192.168.1.254
+и автоматически 
+netsh interface ipv4 set address name="Ethernet 2" source=dhcp
+
+DNS 
+netsh interface ipv4 set dns name="Ethernet 2" static 62.112.106.130
+и ещё один 
+netsh interface ipv4 add dnsservers "Ethernet 2" 62.112.113.170 index=2
